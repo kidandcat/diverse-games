@@ -8,13 +8,27 @@ const s = {
     position: "fixed",
     top: 0,
     left: 0,
-    width: "100%"
+    width: "100%",
+    backgroundColor: 'rgba(0,0,0,0.3)'
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
+    textAlign: "center",
+    color: 'white',
+    fontSize: '2em'
+  },
+  content: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+    marginTop: "10vh"
   },
   background: {
-    position: "fixed"
+    position: "fixed",
+    top: 0,
+    left: 0,
+    zIndex: -1
   }
 };
 
@@ -31,7 +45,7 @@ export default class Layout extends React.Component {
     return (
       <div>
         <Head>
-          <title>Test App</title>
+          <title>Diverse Games</title>
           <link
             href="https://fonts.googleapis.com/css?family=Lato"
             rel="stylesheet"
@@ -47,8 +61,8 @@ export default class Layout extends React.Component {
             `}</style>
         <AppBar position="static" style={s.navbar} color="default">
           <Toolbar>
-            <Typography variant="h6" color="inherit" style={s.title}>
-              Title
+            <Typography style={s.title}>
+              Diverse Games
             </Typography>
           </Toolbar>
         </AppBar>
