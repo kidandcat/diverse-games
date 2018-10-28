@@ -5,17 +5,16 @@ import React from "react";
 
 const s = {
   navbar: {
-    position: "fixed",
     top: 0,
     left: 0,
     width: "100%",
-    backgroundColor: 'rgba(0,0,0,0.3)'
+    backgroundColor: 'rgba(255,255,255,0.75)'
   },
   title: {
     flexGrow: 1,
     textAlign: "center",
-    color: 'white',
-    fontSize: '2em'
+    color: '#660066',
+    fontSize: '3em'
   },
   content: {
     width: "100%",
