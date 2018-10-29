@@ -16,19 +16,19 @@ const s = {
     },
     name: {
         textAlign: "center",
-        color: '#660066',
+        color: 'rgb(0, 196, 189)',
         fontSize: "2em",
         marginTop: 20,
         marginBottom: 10
     },
     desc: {
-        color: '#660066',
+        color: 'rgb(0, 196, 189)',
         textAlign: "center",
         maxWidth: '80vw',
         fontSize: '1.3em'
     },
     controls: {
-        color: '#660066',
+        color: 'rgb(0, 196, 189)',
         textAlign: "center",
         maxWidth: '50vw',
         fontSize: '1em'
@@ -50,7 +50,7 @@ export default ({ title, description, url, controls }) => {
             <h3 style={s.name}>{title}</h3>
             <p style={s.desc}>{description}</p>
             <p style={s.controls}>{controls}</p>
-            {!play && <Button style={s.playButton} onClick={() => setPlay(true)} variant="outlined" color="primary">Play</Button>}
+            {!play && <Button style={s.playButton} onClick={() => setPlay(true)} variant="outlined" color="secondary">Play</Button>}
             {play && <iframe src={url} style={s.frame}></iframe>}
         </Paper>
     )

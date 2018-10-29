@@ -13,7 +13,7 @@ const s = {
   title: {
     flexGrow: 1,
     textAlign: "center",
-    color: '#660066',
+    color: 'rgb(0, 196, 189)',
     fontSize: '3em'
   },
   content: {
@@ -35,7 +35,8 @@ export default class Layout extends React.Component {
   componentDidMount() {
     const pattern = Trianglify({
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
+      x_colors: 'BuGn',
     });
     document.querySelector("#background").innerHTML = "";
     document.querySelector("#background").appendChild(pattern.canvas());
@@ -44,7 +45,7 @@ export default class Layout extends React.Component {
     return (
       <div>
         <Head>
-          <title>Diverse Games</title>
+          <title>Artifact</title>
           <link
             href="https://fonts.googleapis.com/css?family=Lato"
             rel="stylesheet"
@@ -61,7 +62,7 @@ export default class Layout extends React.Component {
         <AppBar position="static" style={s.navbar} color="default">
           <Toolbar>
             <Typography style={s.title}>
-              Diverse Games
+              Artifact
             </Typography>
           </Toolbar>
         </AppBar>

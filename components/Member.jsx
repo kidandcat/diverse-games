@@ -15,13 +15,13 @@ const s = {
     },
     name: {
         textAlign: "center",
-        color: '#660066',
+        color: 'rgb(0, 196, 189)',
         fontSize: "2em",
         marginTop: 20,
         marginBottom: 10
     },
     desc: {
-        color: '#660066',
+        color: 'rgb(0, 196, 189)',
         textAlign: "center",
         maxWidth: '30vw',
         fontSize: '1.5em'
