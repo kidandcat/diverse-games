@@ -46,18 +46,19 @@ export default class Layout extends React.Component {
       <div>
         <Head>
           <title>FRAGMENT</title>
-          <link
-            href="https://fonts.googleapis.com/css?family=Exo+2"
-            rel="stylesheet"
-          />
+          <link href="/static/fonts/Symtext.ttf" rel="stylesheet" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
         </Head>
         <style jsx global>{`
-          html {
-            font-family: "Exo 2", sans-serif;
+          @font-face {
+            font-family: Symtext;
+            src: url("/static/fonts/Symtext.ttf");
+          }
+          * {
+            font-family: "Symtext" !important;
           }
           body {
             margin: 0;
