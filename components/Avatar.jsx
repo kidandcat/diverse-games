@@ -1,19 +1,30 @@
-import { styleAvatar } from '../styles'
-
-const s = {
-    container: {
-        ...styleAvatar(25),
-        margin: 15
-    },
-    image: {
-        width: "100%"
-    }
-}
+import { useState, useEffect } from "react";
 
 export default ({ image }) => {
-    return (
-        <div style={s.container}>
-            <img src={image} style={s.image} />
-        </div>
-    )
-}
+  const [color, setColor] = useState("gray");
+
+  useEffect(() => {
+    if (window.color) {
+      setColor(window.color);
+    } else {
+      window.addEventListener("color", () => {
+        setColor(window.color);
+      });
+    }
+  }, []);
+
+  return (
+    <div
+      style={{
+        width: `25vh`,
+        height: `25vh`,
+        borderRadius: "500px",
+        border: `2px solid ${color}`,
+        overflow: "hidden",
+        margin: 15
+      }}
+    >
+      <img src={image} style={{ width: "100%" }} />
+    </div>
+  );
+};

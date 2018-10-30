@@ -12,6 +12,7 @@
     "next": "latest",
     "react": "^16.7.0-alpha",
     "react-dom": "^16.7.0-alpha",
+    "tinycolor2": "^1.4.1",
     "trianglify": "1.2.0"
   },
   "license": "MIT",

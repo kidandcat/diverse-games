@@ -2,6 +2,7 @@ import Head from "next/head";
 import Trianglify from "trianglify";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import React from "react";
+import tinycolor from "tinycolor2";
 
 const s = {
   navbar: {
@@ -9,12 +10,6 @@ const s = {
     left: 0,
     width: "100%",
     backgroundColor: "rgba(255,255,255,0.75)"
-  },
-  title: {
-    flexGrow: 1,
-    textAlign: "center",
-    color: "rgb(0, 196, 189)",
-    fontSize: "2em"
   },
   content: {
     width: "100%",
@@ -32,12 +27,30 @@ const s = {
 };
 
 export default class Layout extends React.Component {
+  state = {
+    color: "white"
+  };
   componentDidMount() {
     const pattern = Trianglify({
       width: window.innerWidth,
-      height: window.innerHeight,
-      x_colors: "BuGn"
+      height: window.innerHeight
     });
+    let darker;
+    let lightning = 0.0;
+    for (let p of pattern.polys) {
+      let tcolor = tinycolor(p[0]);
+      if (!darker || (tcolor.getLuminance() < lightning && tcolor.isDark())) {
+        darker = p[0];
+        lightning = tcolor.getLuminance();
+      }
+    }
+    var event = new Event("color");
+    window.color = darker;
+    window.dispatchEvent(event);
+    this.setState({
+      color: window.color
+    });
+
     document.querySelector("#background").innerHTML = "";
     document.querySelector("#background").appendChild(pattern.canvas());
   }
@@ -65,7 +78,16 @@ export default class Layout extends React.Component {
         `}</style>
         <AppBar position="static" style={s.navbar} color="default">
           <Toolbar>
-            <Typography style={s.title}>FRAGMENT</Typography>
+            <Typography
+              style={{
+                flexGrow: 1,
+                textAlign: "center",
+                color: this.state.color,
+                fontSize: "2em"
+              }}
+            >
+              FRAGMENT
+            </Typography>
           </Toolbar>
         </AppBar>
         <div style={s.content}>{this.props.children}</div>
