@@ -46,7 +46,6 @@ export default class Layout extends React.Component {
       <div>
         <Head>
           <title>FRAGMENT</title>
-          <link href="/static/fonts/Symtext.ttf" rel="stylesheet" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
@@ -54,11 +53,11 @@ export default class Layout extends React.Component {
         </Head>
         <style jsx global>{`
           @font-face {
-            font-family: Symtext;
-            src: url("/static/fonts/Symtext.ttf");
+            font-family: Arcade;
+            src: url("/static/fonts/pixelfj8pt1.normal.ttf");
           }
           * {
-            font-family: "Symtext" !important;
+            font-family: "Arcade" !important;
           }
           body {
             margin: 0;
