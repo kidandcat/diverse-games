@@ -29,7 +29,8 @@ export default class Page extends React.Component {
             avatar="/static/dani.jpg"
             name="Daniel Ridao Marín"
             description={`
-          No tengo una descripcion por ningun lado, ni en github, ni en linkedin, ...
+            C++ Software designer in the morning. Godot developer, shader scripter, blender 
+            beginner and game lover in the evenings.
         `}
           />
         </div>
