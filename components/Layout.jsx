@@ -28,7 +28,8 @@ const s = {
 
 export default class Layout extends React.Component {
   state = {
-    color: "white"
+    color: "white",
+    loading: true
   };
   componentDidMount() {
     const pattern = Trianglify({
@@ -48,7 +49,8 @@ export default class Layout extends React.Component {
     window.color = darker;
     window.dispatchEvent(event);
     this.setState({
-      color: window.color
+      color: window.color,
+      loading: false
     });
 
     document.querySelector("#background").innerHTML = "";
@@ -57,6 +59,25 @@ export default class Layout extends React.Component {
   render() {
     return (
       <div>
+        <div
+          style={{
+            position: "fixed",
+            width: "100vw",
+            height: "100vh",
+            overflow: "hidden",
+            top: 0,
+            left: 0,
+            backgroundColor: "black",
+            zIndex: 1000,
+            color: "white",
+            display: this.state.loading ? "flex" : "none",
+            justifyContent: "center",
+            alignItems: "center"
+          }}
+          id="foreground"
+        >
+          Loading . . .
+        </div>
         <Head>
           <title>FRAGMENT</title>
           <meta
